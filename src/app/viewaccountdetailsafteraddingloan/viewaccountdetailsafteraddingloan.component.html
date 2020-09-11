@@ -1,0 +1,32 @@
+<div class="col-md-4 mx-auto alert alert-success" *ngIf="msg != undefined">{{msg}}</div>
+<div class="col-md-6 mx-auto text-primary" *ngIf="userName != null">{{userName | titlecase}}</div>
+<div class="col-4 mx-auto m-5">
+    <input type="text" name="txtsearch" placeholder="search by entering your customer ID" [(ngModel)]="searchstrcustid" class="form-control"/>
+</div>
+
+<table class="table shadow text-center table-striped table-hover col-md-8 mx-auto mt-3">
+    <thead class="thead-dark shadow white-text">
+    <tr>
+        <th>Account ID</th>
+        <th>Account Name</th>
+        <th>Account Status</th>
+        <th>Account Balance</th>
+        <th>Created Date</th>
+        <th>Last Updated </th>
+        
+        <th>customer</th>
+       
+    </tr>
+</thead>
+    <tr *ngFor="let acc of accounts | searchbycustid:searchstrcustid">
+        <td>{{acc.accountId}}</td>
+        <td>{{acc.accountName}}</td>
+        <td>{{acc.accountStatus}}</td>  
+        <td>{{acc.accountBalance  | currency:'INR'}}</td>
+        <td>{{acc.createdDt | date: 'dd-MM-yyyy'}}</td>
+        <td>{{acc.lastUpdated | date: 'dd-MM-yyyy'}}</td>
+        <td>{{acc.customer.customerId}}</td>
+       </tr>
+</table>
+
+

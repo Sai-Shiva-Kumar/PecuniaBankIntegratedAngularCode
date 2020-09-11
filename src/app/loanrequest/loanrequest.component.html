@@ -1,0 +1,38 @@
+<section class="col-4 mx-auto">
+<div>
+    <div class="alert alert-success" *ngIf="msg != undefined">{{msg}}</div>
+      <div class="alert alert-danger" *ngIf="errorMsg != undefined">{{errorMsg}}</div>
+    
+    <form #loanfrm="ngForm" (ngSubmit)="applyLoan()">
+    <div>  LOAN AMOUNT </div>
+     <div>
+        <div><input type="text"  name="loanAmount" class="form-control"  required #loanAmount= "ngModel" [(ngModel)]="loanreqform.loanAmount" /></div>
+        <div class="alert alert-danger" *ngIf="loanAmount.invalid && loanAmount.touched">Loan Amount is required</div>
+     
+    </div>
+    
+    <div> LOAN TYPE  </div>
+     <div><input type="text" name="loanType" class="form-control"  required #loanType= "ngModel" [(ngModel)]="loanreqform.loanType"/></div>
+       <div class="alert alert-danger" *ngIf="loanType.invalid && loanType.touched">Loan Type is required</div>
+    
+      
+        <div>LOAN TENURE </div>
+        <div><input type="number"  name="loanTenure" class="form-control"  required #loanTenure= "ngModel" [(ngModel)]="loanreqform.loanTenure" /></div>
+       <div class="alert alert-danger" *ngIf="loanTenure.invalid && loanTenure.touched">Loan Tenure is required</div>
+    
+
+      
+     <div>ANNUAL INCOME </div>
+     <div><input type="text"  name="annualIncome" class="form-control"  required #annualIncome= "ngModel" [(ngModel)]="loanreqform.annualIncome" /></div>
+    <div class="alert alert-danger" *ngIf="annualIncome.invalid && annualIncome.touched">Annual Income is required</div>
+   
+    <div>CUSTOMER ID</div>
+    <div><input type="text"  name="customerId" class="form-control"  required #customerId= "ngModel" [(ngModel)]="loanreqform.customerId" /></div>
+   <div class="alert alert-danger" *ngIf="customerId.invalid && customerId.touched">Customer ID is required</div>
+
+        <button type="submit" class="btn-success p-1 m-1 " [disabled]="!loanfrm.valid" >Request Loan</button>
+</form>
+   
+</div>
+</section>
+    

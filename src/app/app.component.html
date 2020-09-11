@@ -1,0 +1,27 @@
+<header class="jumbotron text-center ">
+  <h1>
+    <img  [src]=myimage class="rounded-circle" width="200" height="200">
+    {{title}}</h1>
+    <div class="col-md-8 text-right">
+    <span *ngIf="!loginflag">
+      <a class="nav-item nav-link text-dark " routerLink="/login" class="btn btn-info">Login</a>
+    </span>
+
+      <span *ngIf="loginflag">
+        <span class="col-md-8 text-left">Hello {{userName|titlecase}}</span>
+        <a class="nav-item nav-link text-dark" routerLink="/login" class="btn btn-danger" (click)="logout()">Logout</a>
+     </span>
+    </div>
+</header>
+<nav class="col-md-10 mx-auto bg-dark p-2 row ">
+    <a   *ngIf = "loginflag"  class="nav-item nav-link text-light"   routerLink="/newaccount"><button type="button" class="btn btn-light">New Account</button></a> 
+    <a   *ngIf = "loginflag"  class="nav-item nav-link text-light"   routerLink="/details"><button type="button" class="btn btn-warning">View Accounts</button></a>
+    <a   *ngIf = "loginflag"  class="nav-item nav-link text-light"   routerLink="/transfer"><button type="button" class="btn btn-success">Transfer Amount</button></a> 
+    <a   *ngIf = "loginflag"  class="nav-item nav-link text-light"   routerLink="/transaction"><button type="button" class="btn btn-secondary">Transactions </button></a>
+    <a   *ngIf = "loginflag"  class="nav-item nav-link text-light"   routerLink="/Loan"><button type="button" class="btn btn-primary">Process Loan</button></a> 
+    <a   *ngIf = "loginflag"  class="nav-item nav-link text-light"   routerLink="/loanrequest"><button type="button" class="btn btn-info">Apply For Loan</button></a>
+
+    </nav>
+
+
+<router-outlet></router-outlet>
